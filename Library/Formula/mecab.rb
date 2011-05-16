@@ -6,7 +6,7 @@ class Mecab < Formula
   md5 'b3d8d79e35acf0ca178e8d885309f5fd'
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--with-charset=utf8", "--enable-utf8-only", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make install"
   end
 end
