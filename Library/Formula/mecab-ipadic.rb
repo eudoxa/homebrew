@@ -8,9 +8,7 @@ class MecabIpadic < Formula
   depends_on "mecab"
 
   def install
-    args = ["--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << ARGV.find(Proc.new {"--with-charset=utf8"}) { |arg| /^--with-charset/.match(arg) }
-
+    args = ["--with-charset=utf8", "--enable-utf8-only", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"]
     system "./configure", *args
     system "make install"
   end
